@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="mod/fuc/db" VERSION="20120608" COMMENT="Configs da BD do modulo Ficha Unidade Curricular - FUC"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="fuc" COMMENT="Configs da BD do modulo Ficha Unidade Curricular - FUC">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="course"/>
+        <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" COMMENT="Course fuc activity belongs to" PREVIOUS="id" NEXT="name"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="50" NOTNULL="true" SEQUENCE="false" COMMENT="Nome da BD" PREVIOUS="course" NEXT="timecreated"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="name" NEXT="timemodified"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="timecreated" NEXT="desigpt"/>
+        <FIELD NAME="desigpt" TYPE="char" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Designacao PT" PREVIOUS="timemodified" NEXT="desigen"/>
+        <FIELD NAME="desigen" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="Designacao EN" PREVIOUS="desigpt" NEXT="desigabrv"/>
+        <FIELD NAME="desigabrv" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="Abreviatura" PREVIOUS="desigen" NEXT="ano"/>
+        <FIELD NAME="ano" TYPE="int" LENGTH="1" NOTNULL="true" UNSIGNED="false" SEQUENCE="false" COMMENT="Ano" PREVIOUS="desigabrv" NEXT="sem"/>
+        <FIELD NAME="sem" TYPE="int" LENGTH="1" NOTNULL="true" UNSIGNED="false" SEQUENCE="false" COMMENT="Semestre" PREVIOUS="ano" NEXT="respnome"/>
+        <FIELD NAME="respnome" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="Responsavel" PREVIOUS="sem" NEXT="docente"/>
+        <FIELD NAME="docente" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="Responsavel" PREVIOUS="respnome" NEXT="docnome"/>
+		<FIELD NAME="docnome" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="Responsavel" PREVIOUS="docente" NEXT="objec"/>
+        <FIELD NAME="objec" TYPE="char" LENGTH="500" NOTNULL="true" SEQUENCE="false" COMMENT="Objectivos da unidade curricular" PREVIOUS="docnome" NEXT="requesite"/>
+        <FIELD NAME="requesite" TYPE="char" LENGTH="300" NOTNULL="true" SEQUENCE="false" COMMENT="Requisitos para frequencia" PREVIOUS="objec" NEXT="program"/>
+        <FIELD NAME="program" TYPE="char" LENGTH="800" NOTNULL="true" SEQUENCE="false" COMMENT="Programa de acordo com as competencias da unidade curricular enviadas ao MCTES" PREVIOUS="requesite" NEXT="biblioum"/>
+        <FIELD NAME="biblioum" TYPE="char" LENGTH="300" NOTNULL="true" SEQUENCE="false" COMMENT="Bibliografia" PREVIOUS="program" NEXT="bibliodois"/>
+        <FIELD NAME="bibliodois" TYPE="char" LENGTH="300" NOTNULL="false" SEQUENCE="false" COMMENT="Bibliografia" PREVIOUS="biblioum" NEXT="bibliotres"/>
+        <FIELD NAME="bibliotres" TYPE="char" LENGTH="300" NOTNULL="false" SEQUENCE="false" COMMENT="Bibliografia" PREVIOUS="bibliodois" NEXT="biblioquatro"/>
+        <FIELD NAME="biblioquatro" TYPE="char" LENGTH="300" NOTNULL="false" SEQUENCE="false" COMMENT="Bibliografia" PREVIOUS="bibliotres" NEXT="bibliocinco"/>
+        <FIELD NAME="bibliocinco" TYPE="char" LENGTH="300" NOTNULL="false" SEQUENCE="false" COMMENT="Bibliografia" PREVIOUS="biblioquatro" NEXT="biblioseis"/>
+        <FIELD NAME="biblioseis" TYPE="char" LENGTH="300" NOTNULL="false" SEQUENCE="false" COMMENT="Bibliografia" PREVIOUS="bibliocinco" NEXT="bibliosete"/>
+        <FIELD NAME="bibliosete" TYPE="char" LENGTH="300" NOTNULL="false" SEQUENCE="false" COMMENT="Bibliografia" PREVIOUS="biblioseis" NEXT="bibliooito"/>
+        <FIELD NAME="bibliooito" TYPE="char" LENGTH="300" NOTNULL="false" SEQUENCE="false" COMMENT="Bibliografia" PREVIOUS="bibliosete" NEXT="biblionove"/>
+        <FIELD NAME="biblionove" TYPE="char" LENGTH="300" NOTNULL="false" SEQUENCE="false" COMMENT="Bibliografia" PREVIOUS="bibliooito" NEXT="bibliodez"/>
+        <FIELD NAME="bibliodez" TYPE="char" LENGTH="300" NOTNULL="false" SEQUENCE="false" COMMENT="Bibliografia" PREVIOUS="biblionove" NEXT="aulasteoricas"/>
+        <FIELD NAME="aulasteoricas" TYPE="int" LENGTH="4" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Aulas Teoricas" PREVIOUS="bibliodez" NEXT="aulastp"/>
+        <FIELD NAME="aulastp" TYPE="int" LENGTH="4" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Aulas Teorico-praticas" PREVIOUS="aulasteoricas" NEXT="aulaspum"/>
+        <FIELD NAME="aulaspum" TYPE="int" LENGTH="4" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Aulas Praticas Laboratoriais" PREVIOUS="aulastp" NEXT="trabcampori"/>
+        <FIELD NAME="trabcampori" TYPE="int" LENGTH="4" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Trabalho de Campo Orientado" PREVIOUS="aulaspum" NEXT="seminario"/>
+        <FIELD NAME="seminario" TYPE="int" LENGTH="4" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Seminarios" PREVIOUS="trabcampori" NEXT="estagioum"/>
+        <FIELD NAME="estagioum" TYPE="int" LENGTH="4" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Estagio" PREVIOUS="seminario" NEXT="oritutorial"/>
+        <FIELD NAME="oritutorial" TYPE="int" LENGTH="4" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Orientacao Tutorial" PREVIOUS="estagioum" NEXT="outrasum"/>
+        <FIELD NAME="outrasum" TYPE="int" LENGTH="4" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Outras" PREVIOUS="oritutorial" NEXT="estagiodois"/>
+        <FIELD NAME="estagiodois" TYPE="int" LENGTH="4" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Estagio" PREVIOUS="outrasum" NEXT="projtraba"/>
+        <FIELD NAME="projtraba" TYPE="int" LENGTH="4" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Projectos e Trabalhos" PREVIOUS="estagiodois" NEXT="trabacampo"/>
+        <FIELD NAME="trabacampo" TYPE="int" LENGTH="4" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Trabalho de Campo" PREVIOUS="projtraba" NEXT="estudo"/>
+        <FIELD NAME="estudo" TYPE="int" LENGTH="4" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Estudo" PREVIOUS="trabacampo" NEXT="aval"/>
+        <FIELD NAME="aval" TYPE="int" LENGTH="4" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Avaliacao" PREVIOUS="estudo" NEXT="outrasdois"/>
+        <FIELD NAME="outrasdois" TYPE="int" LENGTH="4" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Outras" PREVIOUS="aval" NEXT="totalh"/>
+        <FIELD NAME="totalh" TYPE="int" LENGTH="4" NOTNULL="true" UNSIGNED="false" SEQUENCE="false" COMMENT="Total de Horas" PREVIOUS="outrasdois" NEXT="creditcalc"/>
+        <FIELD NAME="creditcalc" TYPE="int" LENGTH="4" NOTNULL="true" UNSIGNED="false" SEQUENCE="false" COMMENT="Creditos Calculados" PREVIOUS="totalh" NEXT="creditects"/>
+        <FIELD NAME="creditects" TYPE="int" LENGTH="4" NOTNULL="true" UNSIGNED="false" SEQUENCE="false" COMMENT="Creditos ECTS Definidos" PREVIOUS="creditcalc" NEXT="metensino"/>
+        <FIELD NAME="metensino" TYPE="char" LENGTH="800" NOTNULL="false" SEQUENCE="false" COMMENT="Metodos de ensino" PREVIOUS="creditects" NEXT="pondtesteescrito"/>
+        <FIELD NAME="pondtesteescrito" TYPE="int" LENGTH="3" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Ponderação" PREVIOUS="metensino" NEXT="pondtrabescritoindiv"/>
+        <FIELD NAME="pondtrabescritoindiv" TYPE="int" LENGTH="3" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Ponderação" PREVIOUS="pondtesteescrito" NEXT="pondtrabescritogrupo"/>
+        <FIELD NAME="pondtrabescritogrupo" TYPE="int" LENGTH="3" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Ponderação" PREVIOUS="pondtrabescritoindiv" NEXT="pondtrabpraticoindividual"/>
+        <FIELD NAME="pondtrabpraticoindividual" TYPE="int" LENGTH="3" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Ponderação" PREVIOUS="pondtrabescritogrupo" NEXT="pondtrabpraticogrupo"/>
+        <FIELD NAME="pondtrabpraticogrupo" TYPE="int" LENGTH="3" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Ponderação" PREVIOUS="pondtrabpraticoindividual" NEXT="pondtesteescritox"/>
+        <FIELD NAME="pondtesteescritox" TYPE="char" LENGTH="1" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="PonderaçãoX" PREVIOUS="pondtrabpraticogrupo" NEXT="pondtrabescritoindivx"/>
+        <FIELD NAME="pondtrabescritoindivx" TYPE="char" LENGTH="1" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="PonderaçãoX" PREVIOUS="pondtesteescritox" NEXT="pondtrabescritogrupox"/>
+		<FIELD NAME="pondtrabescritogrupox" TYPE="char" LENGTH="1" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="PonderaçãoX" PREVIOUS="pondtrabescritoindivx" NEXT="pondtrabpraticoindividualx"/>
+		<FIELD NAME="pondtrabpraticoindividualx" TYPE="char" LENGTH="1" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="PonderaçãoX" PREVIOUS="pondtrabescritogrupox" NEXT="pondtrabpraticogrupox"/>
+		<FIELD NAME="pondtrabpraticogrupox" TYPE="char" LENGTH="1" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="PonderaçãoX" PREVIOUS="pondtrabpraticoindividualx" NEXT="pondexporalx"/>
+		<FIELD NAME="pondexporalx" TYPE="char" LENGTH="1" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="PonderaçãoX" PREVIOUS="pondtrabpraticogrupox" NEXT="aplicacao"/>
+		<FIELD NAME="aplicacao" TYPE="char" LENGTH="1" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Obrigatoriedade" PREVIOUS="pondexporalx" NEXT="unidensino1"/>
+		<FIELD NAME="unidensino1" TYPE="char" LENGTH="1" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Unidade de Ensino 1" PREVIOUS="aplicacao" NEXT="unidensino2"/>
+		<FIELD NAME="unidensino2" TYPE="char" LENGTH="1" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Unidade de Ensino 2" PREVIOUS="unidensino1" NEXT="intro"/>
+		<FIELD NAME="intro" TYPE="char" LENGTH="1" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Moodle" PREVIOUS="unidensino2" NEXT="introformat"/>
+		<FIELD NAME="introformat" TYPE="char" LENGTH="1" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Moodle" PREVIOUS="intro" NEXT="pondexporal"/>
+		<FIELD NAME="pondexporal" TYPE="int" LENGTH="3" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" COMMENT="Ponderação" PREVIOUS="introformat"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="course" UNIQUE="false" FIELDS="course"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>
